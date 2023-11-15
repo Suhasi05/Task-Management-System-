@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User</title>
+    <link rel="stylesheet" href="user.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="">
+             <label class="logo">Task Managment System</label>
+                <ul>
+                  <li style="color: white;">Welcome, <strong id="userr"></strong></li>
+                </ul>
+                <label id="icon">
+                    <i cNlass="fa fa-bars"></i>
+                </label>
+        </nav>
+   </header>
+
+  <div class="todo-input">
+    <p>Add Task</p>
+    <input type="text" class='input-field' placeholder="Task">
+    <p>Add Description</p>
+    <input type="text" class='input-field' placeholder="Description">
+    <p>Add Status</p>
+    <input type="text" class='input-field' placeholder="Status" list="statusList">
+  <datalist id="statusList">
+    <option value="To-Do"></option>
+    <option value="In Progress"></option>
+    <option value="Completed"></option>
+  </datalist>
+  <p>Add Deadline date</p>
+  <input type="date" id="dateInput" class='input-field'>
+  <p>Add Deadline Time</p>
+  <input type="time" id="timeInput" class='input-field'>
+  <button id="addBtn" class='submit-btn'>Add</button>
+  <button id="sortBtn" class='submit-btn' style="text-align: center;">Sort</button>
+  </div>
+    <ul></ul>
+    <span>Task List</span>
+  <div class="todo-table">
+    <table id="todoTable">
+        <tr>
+          <td></td>
+          <td>Date</td>
+          <td>DeadLine Date</td>
+          <td>DeadLine Time</td>
+          <td>Task</td>
+          <td>
+            Description
+          </td>
+          <td></td>
+          <td>
+            <select id="statusFilter">
+                <option value="Select Status">Select Status</option>
+                <option value="To-Do">To-Do</option>
+                <option value="In Progress">In Progress</option>
+                <option value="Completed">Completed</option>
+            </select>
+          </td>
+          <!-- <td></td> -->
+        </tr>
+      </table>
+  </div>
+    <script src="script2.js"></script>
+</body>
+</html>
