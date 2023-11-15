@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="home.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+</head>
+<body>
+   <header>
+        <nav class="">
+             <label class="logo">Task Managment System</label>
+                <ul>
+                    <li><button class='loginbtn' onclick="login();" style="width:auto;">Login</button></li>
+                    <li><button class='loginbtn' onclick="adminLogin();" style="width:auto;">Admin Login</button></li>
+                </ul>
+                <label id="icon">
+                    <i class="fa fa-bars"></i>
+                </label>
+        </nav>
+   </header>
+
+   <section>
+    <div class="center-content">
+        <img id="background-image" src="tasks.png" alt="Your Image">
+    </div>
+    <div id='login-form'class='login-page'>
+        <div class="form-box">
+            <div class='button-box'>
+                <div id='btn'></div>
+                <button type='button'onclick='login()'class='toggle-btn'>Log In</button>
+                <button type='button'onclick='register()'class='toggle-btn'>Register</button>
+            </div>
+     <form id='login' class='input-group-login' onsubmit="return false">
+                <input type='email' id="emailL" class='input-field' placeholder='Email Id' required >
+                <input type='password' id="password" class='input-field'placeholder='Enter Password' required>
+                <button type='submit' class='submit-btn' onclick='loginU()'>Log in</button>
+     </form>
+
+     <form id='register' class='input-group-register'>
+         <input type='text' id='username' class='input-field' placeholder='Your Name' required>
+         <input type='email' id="email" class='input-field' placeholder='Email Id' required>
+         <input type='password' id='registerPassword' class='input-field' placeholder='Enter Password' required>
+         <input type='password' id='confirmPassword' class='input-field' placeholder='Confirm Password'  required>
+         <button type='submit' class='submit-btn' onclick="registerL">Register</button>
+     </form>
+    </div>
+</div>
+</div>
+<div id='admin-login-form' class='login-page hidden'>
+    <div class="form-box">
+        <div>
+            <div id='abtn'><h2>Admin Log In</h2></div>
+        </div>
+        <form id='alogin' class='input-group-login' action="/home.html">
+            <input type='text' class='input-field' placeholder='Admin Email Id' required >
+            <input type='password' class='input-field' placeholder='Admin Password' required>
+            <button type='submit' class='submit-btn'>Log in</button>
+        </form>
+    </div>
+</div>
+   </section>
+    <script src="script.js"></script>
+</body>
+</html>
