@@ -177,15 +177,15 @@ const DEFAULT_OPTION = "Select Status";
     trElem.appendChild(tdElem3);
 
     // delete cell
-    let spanElem = document.createElement("span");
-    spanElem.innerText = "delete";
-    spanElem.className = "material-icons";
-    spanElem.addEventListener("click", deleteItem, false);
-    spanElem.dataset.id = id;
     let tdElem4 = document.createElement("td");
-    tdElem4.appendChild(spanElem);
-    trElem.appendChild(tdElem4);
+    let deleteBtn = document.createElement("button");
+    deleteBtn.innerText = "Delete";
+    deleteBtn.className = "deleteBtn";
+    deleteBtn.addEventListener("click", deleteItem, false);
+    deleteBtn.dataset.id = id;
+    tdElem4.appendChild(deleteBtn);
 
+    trElem.appendChild(tdElem4);
     //status cell
     let tdElem5 = document.createElement("td");
     tdElem5.innerText = inputValue3;
@@ -232,46 +232,56 @@ const DEFAULT_OPTION = "Select Status";
         save();
       }
 
-  //   function updateEntry(updateBtn, id, tdElem2, inputElem, inputElem2, inputElem3, dateInput, timeInput) {
-  //     let selectedRow = document.querySelector(`tr[data-id="${id}"]`);
-  //     console.log(selectedRow);
+    function updateEntry(updateBtn, id, tdElem2, inputElem, inputElem2, inputElem3, dateInput, timeInput) {
+      let selectedRow = document.querySelector(`tr[data-id="${id}"]`);
+      console.log(selectedRow);
       
-  //     selectedRow.classList.toggle("selected");
+      selectedRow.classList.toggle("selected");
 
-  //     if (updateBtn.innerText.toLowerCase() === "update") {
-  //         inputElem.value = tdElem2.innerText;
-  //         inputElem2.value = tdElem3.innerText;
-  //         inputElem3.value = tdElem5.innerText;
-  //         dateInput.value = dateElem.innerText;
-  //         timeInput.value = timeElem.innerText;
+      if (updateBtn.innerText.toLowerCase() === "update") {
+          inputElem.value = tdElem2.innerText;
+          inputElem2.value = tdElem3.innerText;
+          inputElem3.value = tdElem5.innerText;
+          dateInput.value = dateElem.innerText;
+          timeInput.value = timeElem.innerText;
 
-  //         updateBtn.innerText = "Save";
-  //         updateBtn.removeAttribute("disabled");
-  //         inputElem.removeAttribute("readonly");
-  //         inputElem2.removeAttribute("readonly");
-  //         inputElem3.removeAttribute("readonly");
-  //         dateInput.removeAttribute("readonly");
-  //         timeInput.removeAttribute("readonly");
+          updateBtn.innerText = "Save";
+          updateBtn.removeAttribute("disabled");
+          inputElem.removeAttribute("readonly");
+          inputElem2.removeAttribute("readonly");
+          inputElem3.removeAttribute("readonly");
+          dateInput.removeAttribute("readonly");
+          timeInput.removeAttribute("readonly");
   
-  //         dateInput.focus();
-  //     } else {
-  //         tdElem2.innerText = inputElem.value;
-  //         tdElem3.innerText = inputElem2.value;
-  //         tdElem5.innerText = inputElem3.value;
-  //         dateElem.innerText = dateInput.value;
-  //         timeElem.innerText = timeInput.value;
-  
-  //         updateBtn.innerText = "Update";
-  //         updateBtn.setAttribute("readonly", "readonly");
-  //         inputElem.setAttribute("readonly", "readonly");
-  //         inputElem2.setAttribute("readonly", "readonly");
-  //         inputElem3.setAttribute("readonly", "readonly");
-  //         dateInput.setAttribute("readonly", "readonly");
-  //         timeInput.setAttribute("readonly", "readonly");
+          dateInput.focus();
+      } else {
+        tdElem2.innerText = inputElem.value;
+        tdElem3.innerText = inputElem2.value;
+        tdElem5.innerText = inputElem3.value;
+        dateElem.innerText = dateInput.value;
+        timeElem.innerText = timeInput.value;
 
-  //         save();
-  //     } 
-  // }  
+        let index = todoList.findIndex(item => item.id === id);
+      if (index !== -1) {
+        todoList[index].todo = inputElem.value;
+        todoList[index].description = inputElem2.value;
+        todoList[index].status = inputElem3.value;
+        todoList[index].date = dateInput.value;
+        todoList[index].time = timeInput.value;
+        todoList[index].done = false; 
+      }
+  
+        updateBtn.innerText = "Update";
+        updateBtn.setAttribute("readonly", "readonly");
+        inputElem.setAttribute("readonly", "readonly");
+        inputElem2.setAttribute("readonly", "readonly");
+        inputElem3.setAttribute("readonly", "readonly");
+        dateInput.setAttribute("readonly", "readonly");
+        timeInput.setAttribute("readonly", "readonly");
+  
+        save(); 
+    } 
+  }  
   }
   
   function _uuid() {

@@ -170,12 +170,19 @@ tr.selected {
     background-color: #99a1a9; 
     color: #212325; 
 }
-.update-btn {
+.update-btn, .deleteBtn{
     background-color: #113959;
     color: white;
     padding: 5px;
     width: 60px;
     border-radius: 5px;
+    cursor: pointer;
+}
+.update-btn:hover, .deleteBtn:hover {
+    opacity: 0.8;
+}
+.update-btn:active, .deleteBtn:active {
+    opacity: 0.6;
 }
 .update-btn:hover {
     opacity: 0.8;
